@@ -1,0 +1,8 @@
+# Now on Chef Server
+
+# 4 --- goes here
+sudo -i
+<out command goes here>
+
+# 5 Copy the output line. It will be used in next on compliance server
+<output for compliance server>

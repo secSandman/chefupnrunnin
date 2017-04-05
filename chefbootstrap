@@ -1,0 +1,8 @@
+#!/bin/bash
+yum update -y
+curl -L https://www.opscode.com/chef/install.sh | sudo bash
+chef-client -v
+mkdir /etc/chef
+aws s3 cp s3://<bucket-name>/<org-name>.pem ./etc/chef/<org-name>.pem
+aws s3 cp s3://<bucket-name>/client.rb ./etc/chef/client.rb
+sudo chef-client -i 10

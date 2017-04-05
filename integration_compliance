@@ -1,0 +1,39 @@
+# Now on Compliance Server
+
+#1. configure compliance and get chef server config script
+
+sudo -i
+chef-compliance-ctl connect chef-server
+
+
+#2. reconfigure and create secrets
+
+sudo -i
+chef-compliance-ctl reconfigure
+
+
+
+#3. restart
+
+sudo -i
+chef-compliance-ctl restart core
+
+#6 run output command from chef server on compliance server now
+sudo -i
+< output from chef server goes here>
+
+#7 When finished reconfigure compliance server
+
+sudo -i
+chef-compliance-ctl reconfigure
+
+#8
+Go to the Chef Compliance web interface and click the
+Use a different provider link. The default provider is Compliance Server.
+Switch it to Chef Server, and then accept the authorization request.
+Only nodes under management by Chef that successfully run
+audit::default will show up in Chef Compliance.
+
+#9 for Chef Compliance Configure node client.rb file to specify audit mode
+
+--audit-mode :enabled
